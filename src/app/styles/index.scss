@@ -18,6 +18,7 @@
 
 .content-page {
   display: flex;
+  min-width: 0;
 }
 
 *::-webkit-scrollbar {
@@ -33,4 +34,21 @@
   background-color: var(--inverted-primary-color);
   border-radius: 20px;
   border: 2px solid var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+  .app {
+    --sidebar-width: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-page {
+    display: block;
+    padding-bottom: var(--mobile-nav-height);
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
 }

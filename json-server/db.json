@@ -110,7 +110,7 @@
       "id": "2",
       "title": "python news?",
       "subtitle": "Что нового в python за 2030 год?",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/2048px-Python-logo-notext.svg.png",
+      "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1280px-Python-logo-notext.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
       "views": 1022000,
       "createdAt": "12.02.2030",
       "userId": "1",
@@ -926,7 +926,7 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false
       },
@@ -995,7 +995,7 @@
       "age": 1,
       "currency": "RUB",
       "country": "Russia",
-      "city": "Kazan",
+      "city": "Moscow",
       "username": "admin",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZCBkZ3n4GPzQexyRAVB6eOlJgkykZqEAOjg&s"
     },

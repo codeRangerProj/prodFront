@@ -1,17 +1,43 @@
 .CommentCard {
   padding: 10px;
   border: 1px solid var(--primary-color);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .header {
   display: flex;
   align-items: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .username {
   margin-left: 10px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .loading {
   border: none;
+}
+
+@media (max-width: 767px) {
+  .CommentCard {
+    padding: 10px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
 }

@@ -19,8 +19,16 @@
   background: var(--bg-color);
   transition: 0.3s transform;
   transform: scale(0.5);
-  max-width: 60%;
+  width: min(60%, 640px);
+  max-width: calc(100% - 24px);
   z-index: var(--modal-z-index);
+}
+
+@media (max-width: 767px) {
+  .content {
+    width: calc(100% - 24px);
+    padding: 16px;
+  }
 }
 
 .opened {

@@ -22,11 +22,31 @@
 .sheet {
   z-index: var(--modal-z-index);
   position: fixed;
+  right: 2vw;
   left: 2vw;
-  height: calc(100vh + 100px);
-  width: 96vw;
+  height: min(calc(100vh - 24px), 640px);
+  max-height: calc(100vh - 24px);
+  width: auto;
+  max-width: 640px;
+  margin: 0 auto;
   border-radius: 12px 12px 0;
   background: var(--bg-color);
   touch-action: none;
   padding: 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .sheet {
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: min(calc(100vh - 24px), 640px);
+    max-height: calc(100vh - 24px);
+    border-radius: 12px 12px 0 0;
+    padding: 12px;
+  }
 }

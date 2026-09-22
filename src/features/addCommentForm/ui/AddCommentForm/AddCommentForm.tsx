@@ -61,6 +61,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           value={text}
           onChange={onCommentTextChange}
           placeholder={t('Введите текст комментария')}
+          multiline
           data-testid="AddCommentForm.Input"
         />
         <Button

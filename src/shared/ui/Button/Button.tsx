@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -27,35 +27,40 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
-export const Button = memo((props: ButtonProps) => {
-  const {
-    className,
-    theme = ButtonTheme.OUTLINE,
-    children,
-    disabled,
-    fullWidth,
-    square,
-    size = ButtonSize.M,
-    ...otherProps
-  } = props;
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      className,
+      theme = ButtonTheme.OUTLINE,
+      children,
+      disabled,
+      fullWidth,
+      square,
+      size = ButtonSize.M,
+      ...otherProps
+    } = props;
 
-  const mods: Mods = {
-    [cls[theme]]: true,
-    [cls.square]: square,
-    [cls[size]]: true,
-    [cls.disabled]: disabled,
-    [cls.fullWidth]: fullWidth,
-  };
+    const mods: Mods = {
+      [cls[theme]]: true,
+      [cls.square]: square,
+      [cls[size]]: true,
+      [cls.disabled]: disabled,
+      [cls.fullWidth]: fullWidth,
+    };
 
-  return (
-    <button
-      type="button"
-      data-testid="storybook-button"
-      className={classNames(cls.Button, mods, [className])}
-      disabled={disabled}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
-});
+    return (
+      <button
+        ref={ref}
+        type="button"
+        data-testid="storybook-button"
+        className={classNames(cls.Button, mods, [className])}
+        disabled={disabled}
+        {...otherProps}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+
+Button.displayName = 'Button';

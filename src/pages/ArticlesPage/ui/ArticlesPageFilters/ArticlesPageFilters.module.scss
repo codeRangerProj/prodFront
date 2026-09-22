@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .search {
@@ -10,4 +11,17 @@
 
 .tabs {
   margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+@media (max-width: 767px) {
+  .sortWrapper {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .search {
+    margin-top: 12px;
+  }
 }

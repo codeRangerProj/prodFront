@@ -1,6 +1,9 @@
 .ProfileCard {
   padding: 20px;
   border: 2px solid var(--inverted-bg-color);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .error,
@@ -10,4 +13,19 @@
 
 .editing {
   border: 2px dashed var(--red-light);
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .ProfileCard {
+    padding: 12px;
+  }
+
+  .avatarWrapper {
+    margin-bottom: 4px;
+  }
 }

@@ -1,21 +1,38 @@
 .BIG {
   .card {
     margin-bottom: 30px;
+    min-width: 0;
   }
 }
 
 .SMALL {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 30px;
 
   .card {
-    display: inline-flex;
-    height: 300px;
+    min-width: 0;
+    height: 100%;
   }
 
   .row {
     display: flex;
     gap: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .SMALL {
+    gap: 12px;
+
+    .row {
+      gap: 12px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .SMALL {
+    grid-template-columns: 1fr;
   }
 }

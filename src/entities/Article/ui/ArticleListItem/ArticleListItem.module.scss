@@ -1,4 +1,10 @@
 .BIG {
+  min-width: 0;
+
+  .card {
+    height: 100%;
+  }
+
   .view {
     margin-left: auto;
   }
@@ -18,6 +24,7 @@
 
   .title {
     margin-top: 8px;
+    min-width: 0;
   }
 
   .img {
@@ -40,8 +47,39 @@
   }
 }
 
+@media (max-width: 767px) {
+  .BIG {
+    .header {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px 8px;
+    }
+
+    .username,
+    .date {
+      margin-left: 0;
+    }
+
+    .date {
+      width: 100%;
+      order: 3;
+    }
+
+    .img {
+      max-height: 220px;
+    }
+
+    .footer {
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+}
+
 .SMALL {
-  width: 230px;
+  width: 100%;
+  min-width: 0;
   transition: 0.2s;
   cursor: pointer;
 
@@ -62,14 +100,15 @@
   }
 
   .imageWrapper {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
     position: relative;
   }
 
   .img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -77,10 +116,12 @@
     display: flex;
     align-items: center;
     margin-top: 8px;
+    min-width: 0;
   }
 
   .types p {
-    width: 115px;
+    width: 100%;
+    min-width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -93,12 +134,21 @@
 
   .title {
     margin-top: 8px;
+    min-width: 0;
   }
 
   .title p {
-    width: 200px;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 767px) {
+  .SMALL {
+    .card {
+      padding: 10px;
+    }
   }
 }

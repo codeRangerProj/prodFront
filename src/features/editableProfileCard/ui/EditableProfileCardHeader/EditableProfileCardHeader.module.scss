@@ -1,0 +1,32 @@
+.header {
+  width: 100%;
+  min-width: 0;
+  gap: 12px;
+}
+
+.actions {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .actions > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .actions button {
+    width: 100%;
+    white-space: nowrap;
+  }
+}

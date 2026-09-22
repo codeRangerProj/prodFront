@@ -4,6 +4,7 @@
   background-color: var(--inverted-bg-color);
   position: relative;
   transition: width 0.3s;
+  flex-shrink: 0;
 }
 
 .switchers {
@@ -44,5 +45,35 @@
 
   .lang {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .Sidebar {
+    position: fixed;
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--mobile-nav-height);
+    display: flex;
+    align-items: center;
+    background-color: var(--inverted-bg-color);
+  }
+
+  .items {
+    width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .switchers,
+  .collapseBtn {
+    display: none;
   }
 }

@@ -1,9 +1,11 @@
 .Wrapper {
   display: flex;
+  min-width: 0;
 }
 
 .label {
   margin-right: 5px;
+  white-space: nowrap;
 }
 
 .select {
@@ -12,9 +14,21 @@
   color: var(--primary-color);
   padding: 2px 10px 2px 2px;
   border: 1px solid var(--primary-color);
+  min-width: 0;
+  max-width: 100%;
 }
 
 .option {
   color: var(--inverted-primary-color);
   background: var(--inverted-bg-color);
+}
+
+@media (max-width: 767px) {
+  .label {
+    margin: 0 0 4px;
+  }
+
+  .select {
+    width: 100%;
+  }
 }

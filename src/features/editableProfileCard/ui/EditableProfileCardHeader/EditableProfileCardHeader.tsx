@@ -11,6 +11,7 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import cls from './EditableProfileCardHeader.module.scss';
 
 interface EditableProfileCardHeaderProps {
   className?: string;
@@ -39,7 +40,11 @@ export const EditableProfileCardHeader = memo(
     }, [dispatch]);
 
     return (
-      <HStack max justify="between" className={classNames('', {}, [className])}>
+      <HStack
+        max
+        justify="between"
+        className={classNames(cls.header, {}, [className])}
+      >
         <Text title={t('Профиль')} />
         {canEdit && (
           <div>
@@ -52,7 +57,7 @@ export const EditableProfileCardHeader = memo(
                 {t('Редактировать')}
               </Button>
             ) : (
-              <HStack gap="8">
+              <HStack gap="8" className={cls.actions}>
                 <Button
                   theme={ButtonTheme.OUTLINE_RED}
                   onClick={onCancelEdit}

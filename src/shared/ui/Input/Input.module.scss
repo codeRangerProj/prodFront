@@ -4,6 +4,8 @@
 
 .placeholder {
   margin-right: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .input {
@@ -11,12 +13,24 @@
   border: none;
   outline: none;
   width: 100%;
+  min-width: 0;
   color: transparent;
   text-shadow: 0 0 0 var(--primary-color);
+  overflow-wrap: anywhere;
 
   &:focus {
     outline: none;
   }
+}
+
+textarea.input {
+  min-height: 48px;
+  resize: none;
+  overflow-y: hidden;
+  line-height: var(--font-line-m);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .caretWrapper {
@@ -36,6 +50,17 @@
 
 .readonly {
   opacity: 0.7;
+}
+
+.multiline {
+  .input {
+    color: var(--primary-color);
+    text-shadow: none;
+  }
+
+  .caret {
+    display: none;
+  }
 }
 
 @keyframes blink {
