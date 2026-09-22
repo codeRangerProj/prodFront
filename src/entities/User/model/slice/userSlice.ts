@@ -4,9 +4,20 @@ import { User, UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
+import { UserRole } from '../consts/userConsts';
 
 const initialState: UserSchema = {
   _inited: false,
+};
+
+const demoUser: User = {
+  id: '1',
+  username: 'admin',
+  roles: [UserRole.ADMIN],
+  features: {
+    isArticleRatingEnabled: true,
+    isCounterEnabled: true,
+  },
 };
 
 export const userSlice = createSlice({
@@ -18,12 +29,16 @@ export const userSlice = createSlice({
       setFeatureFlags(action.payload.features);
     },
     initAuthData: (state) => {
-      const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-      if (user) {
-        const json = JSON.parse(user) as User;
-        state.authData = json;
-        setFeatureFlags(json.features);
+      const storedUser = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+      const user = storedUser ? (JSON.parse(storedUser) as User) : demoUser;
+
+      state.authData = user;
+      setFeatureFlags(user.features);
+
+      if (!storedUser) {
+        localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(user));
       }
+
       state._inited = true;
     },
     logout: (state) => {

@@ -14,6 +14,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
   const toggle = () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
   };
+  const languageLabel = i18n.language === 'ru' ? 'Рус' : 'En';
 
   return (
     <Button
@@ -21,7 +22,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
       theme={ButtonTheme.CLEAR_INVERTED}
       onClick={toggle}
     >
-      {t(short ? 'Короткий язык' : 'Язык')}
+      {short ? languageLabel : t('Язык')}
     </Button>
   );
 });

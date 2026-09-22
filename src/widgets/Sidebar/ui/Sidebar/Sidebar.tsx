@@ -51,8 +51,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         {itemList}
       </VStack>
       <div className={cls.switchers}>
-        <ThemeSwitcher />
+        <ThemeSwitcher className={cls.desktopTheme} />
+        <ThemeSwitcher mobile className={cls.mobileTheme} />
         <LangSwitcher short={collapsed} className={cls.lang} />
+        <LangSwitcher short className={cls.mobileLang} />
       </div>
     </aside>
   );
